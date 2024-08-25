@@ -1,0 +1,9 @@
+.main {
+  display: grid;
+  grid-template-columns: 2fr 10fr;
+}
+.cardListWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

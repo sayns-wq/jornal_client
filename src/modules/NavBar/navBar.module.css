@@ -1,0 +1,12 @@
+.navBar {
+  background-color: blueviolet;
+}
+.navBar ul {
+  padding: 30px 20px;
+  list-style: none;
+}
+.navBar ul li {
+  color: #ffffff;
+  padding: 10px 0px;
+  cursor: pointer;
+}

@@ -1,0 +1,18 @@
+.card {
+  width: 100%;
+  border: 1px solid #3e3e3e;
+  border-radius: 15px;
+  padding: 25px 40px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.card:hover {
+  border: 1px solid #9e9e9e;
+  transition: 0.5s;
+}
+.card h4 {
+  color: #3e3e3e;
+}
+.card p {
+  color: #3e3e3e;
+}
