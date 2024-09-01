@@ -10,6 +10,7 @@
   width: 80vw;
   border-radius: 16px;
   height: 100vh;
+  position: relative;
 }
 
 .editorWrapper::-webkit-scrollbar {

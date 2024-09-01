@@ -1,0 +1,44 @@
+.menu {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 200px;
+  height: 230px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.menu_item {
+  position: absolute;
+  transform-origin: 100px;
+  left: 0;
+  transition: 0.5s;
+  transform: rotate(0deg) translate(80px);
+}
+.menu_item div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.toggle {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background-color: aliceblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
+  font-size: 1.6rem;
+  transition: all 1s;
+}
+.menu.active .toggle {
+  transform: rotate(315deg);
+}

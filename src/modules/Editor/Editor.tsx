@@ -3,30 +3,19 @@ import { useRef } from "react";
 
 import styles from "./editor.module.css";
 import { InitEditor } from "./hooks";
+import CircularNavigation from "../CircularNavigation/CircularNavigation";
+import { createButtons } from "./utils";
+import { useRouter } from "next/navigation";
 
 export default function Editor() {
   const ejInstance = useRef(null);
   const [editor] = InitEditor({ instanceRef: ejInstance });
-
+  const router = useRouter();
   return (
     <div className={styles.editor}>
       <div id="editorjs" ref={ejInstance}></div>
-      <button
-        onClick={() => {
-          console.log(editor);
-          editor &&
-            editor
-              .save()
-              .then((outputData: any) => {
-                console.log("Article data: ", outputData);
-              })
-              .catch((error: any) => {
-                console.log("Saving failed: ", error);
-              });
-        }}
-      >
-        Сохранить
-      </button>
+
+      <CircularNavigation buttons={createButtons(editor, router)} />
     </div>
   );
 }
