@@ -2,6 +2,7 @@
 import { useDispatch } from "react-redux";
 import styles from "./navBar.module.css";
 import { setBlock } from "@/store/navBar/navBarSlice";
+import Link from "next/link";
 
 const navItems = [
   {
@@ -32,6 +33,7 @@ export default function NavBar() {
             </li>
           );
         })}
+        <Link href={"/createArticle"}>Создать</Link>
       </ul>
     </nav>
   );

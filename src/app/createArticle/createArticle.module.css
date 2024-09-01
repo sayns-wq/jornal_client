@@ -1,0 +1,17 @@
+.mainPage {
+  display: grid;
+  justify-content: center;
+}
+.editorWrapper {
+  background-color: #d9d9d9;
+  display: flex;
+  justify-content: center;
+  overflow-y: scroll;
+  width: 80vw;
+  border-radius: 16px;
+  height: 100vh;
+}
+
+.editorWrapper::-webkit-scrollbar {
+  width: 0;
+}
