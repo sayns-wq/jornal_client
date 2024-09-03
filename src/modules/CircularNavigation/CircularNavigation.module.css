@@ -1,7 +1,7 @@
 .menu {
   position: absolute;
   bottom: 0;
-  right: 0;
+  right: 5px;
   width: 200px;
   height: 230px;
   display: flex;
@@ -23,6 +23,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  cursor: pointer;
 }
 .toggle {
   position: absolute;

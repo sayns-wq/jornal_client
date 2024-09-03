@@ -16,7 +16,7 @@ import Marker from "@editorjs/marker";
 import Underline from "@editorjs/underline";
 import { ToolConstructable } from "@editorjs/editorjs";
 
-export const config = {
+export const baseConfig = {
   holder: "editorjs",
   placeholder: "Start writing your story...",
   tools: {
