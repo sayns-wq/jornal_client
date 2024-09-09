@@ -1,15 +1,28 @@
 "use client";
 
-import { useSelector } from "react-redux";
 import { config } from "./config";
 import Editor from "@/components/Editor/Editor";
-import { RootState } from "@/store/store";
-
+import { useGetOneArticleQuery } from "@/store/api/articleApi";
+import { useRouter, usePathname, useParams } from "next/navigation";
+let baseConfig = {
+  ...config,
+  data: {
+    blocks: [],
+  },
+};
 export default function Reader() {
-  const data = useSelector((state: RootState) => state.editor.data);
-  const resultConfig = {
-    ...config,
-    data: data,
-  };
-  return <Editor config={resultConfig} isEditable={false} id="readerjs" />;
+  const pathName = useParams();
+  const { article_id } = pathName;
+  const { data, isLoading } = useGetOneArticleQuery(article_id);
+
+  return isLoading ? (
+    <>loading</>
+  ) : (
+    <Editor
+      config={baseConfig}
+      isEditable={false}
+      dataToRender={JSON.parse(data.data.articleData)}
+      id="readerjs"
+    />
+  );
 }

@@ -1,6 +1,7 @@
 .main {
   display: grid;
   grid-template-columns: 2fr 10fr;
+  height: 100%;
 }
 .cardListWrapper {
   display: flex;

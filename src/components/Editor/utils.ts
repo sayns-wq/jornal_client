@@ -1,18 +1,21 @@
 "use client";
-import { setData } from "@/store/editor/editorSlice";
 import EditorJS from "@editorjs/editorjs";
 import { Dispatch } from "@reduxjs/toolkit";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
 const saveEditorHandler = (
   editor: EditorJS | undefined,
-  dispatch: Dispatch
+  onSave: (data: any) => void
 ) => {
   editor &&
     editor
       .save()
       .then((outputData: any) => {
-        dispatch(setData(outputData));
+        onSave({
+          articleData: outputData,
+          tags: [],
+          createdAt: new Date(),
+        });
       })
       .catch((error: any) => {
         console.log("Saving failed: ", error);
@@ -26,7 +29,8 @@ const backButtonHandler = (router: AppRouterInstance) => {
 export const createButtons = (
   editor: EditorJS | undefined,
   router: AppRouterInstance,
-  dispatch: Dispatch
+  dispatch: Dispatch,
+  onSave: (body: any) => void
 ) => {
   return [
     {
@@ -35,7 +39,7 @@ export const createButtons = (
     },
     {
       label: "Save",
-      function: () => saveEditorHandler(editor, dispatch),
+      function: () => saveEditorHandler(editor, onSave),
     },
   ];
 };
