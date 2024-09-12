@@ -19,6 +19,7 @@
   overflow-y: scroll;
   box-sizing: border-box;
 }
+.cardListSection::-webkit-scrollbar,
 .cardListWrapper::-webkit-scrollbar {
   width: 0;
 }
