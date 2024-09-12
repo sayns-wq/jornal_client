@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { useGetAllArticlesQuery } from "@/store/api/articleApi";
+import Loader from "@/components/Loader/Loader";
 
 export default function CardList() {
   const { data, isLoading } = useGetAllArticlesQuery(null);
@@ -16,7 +17,7 @@ export default function CardList() {
     <section className={styles.cardListSection}>
       <p className={styles.header}>{selectedBlock}</p>
       {isLoading ? (
-        <>loading</>
+        <Loader />
       ) : (
         <div className={styles.cardListWrapper}>
           {data.data.map((card: any) => {

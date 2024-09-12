@@ -2,6 +2,7 @@
 
 import { config } from "./config";
 import Editor from "@/components/Editor/Editor";
+import Loader from "@/components/Loader/Loader";
 import { useGetOneArticleQuery } from "@/store/api/articleApi";
 import { useRouter, usePathname, useParams } from "next/navigation";
 let baseConfig = {
@@ -16,7 +17,7 @@ export default function Reader() {
   const { data, isLoading } = useGetOneArticleQuery(article_id);
 
   return isLoading ? (
-    <>loading</>
+    <Loader />
   ) : (
     <Editor
       config={baseConfig}
