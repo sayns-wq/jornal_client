@@ -5,6 +5,7 @@
   padding: 60px 70px;
   box-sizing: border-box;
   max-height: 100vh;
+  overflow-y: scroll;
 }
 .cardListWrapper {
   display: flex;

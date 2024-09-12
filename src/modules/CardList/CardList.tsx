@@ -26,7 +26,11 @@ export default function CardList() {
                 key={card.id}
                 className={styles.link}
               >
-                <ArticleCard header={card.id} text={card.id} key={card.id} />
+                <ArticleCard
+                  header={card.header}
+                  text={card.createdAt}
+                  key={card.id}
+                />
               </Link>
             );
           })}

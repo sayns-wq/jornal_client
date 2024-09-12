@@ -25,6 +25,13 @@ export const articleApi = createApi({
         method: "GET",
       }),
     }),
+    updateArticle: build.mutation({
+      query: (body) => ({
+        url: `/${body.id}`,
+        method: "PATCH",
+        body: body,
+      }),
+    }),
   }),
 });
 
@@ -32,4 +39,5 @@ export const {
   usePostArticleMutation,
   useGetOneArticleQuery,
   useGetAllArticlesQuery,
+  useUpdateArticleMutation,
 } = articleApi;

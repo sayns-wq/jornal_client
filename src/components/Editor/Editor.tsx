@@ -1,12 +1,11 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 import styles from "./editor.module.css";
 import { InitEditor } from "./hooks";
 import { createButtons } from "./utils";
 import { useRouter } from "next/navigation";
 import { baseConfig } from "./config";
-import { useDispatch } from "react-redux";
 import CircularNavigation from "@/modules/CircularNavigation/CircularNavigation";
 
 export default function Editor({
@@ -17,7 +16,6 @@ export default function Editor({
   onSave = null,
 }: any) {
   const ejInstance = useRef(null);
-  const dispatch = useDispatch();
   const resultConfig = { ...baseConfig, ...config, holder: id };
 
   const [editor] = InitEditor({
@@ -34,13 +32,12 @@ export default function Editor({
       });
     }
   }, [editor, dataToRender]);
+
   return (
     <div className={styles.editor}>
       <div id={id} ref={ejInstance}></div>
       {isEditable && (
-        <CircularNavigation
-          buttons={createButtons(editor, router, dispatch, onSave)}
-        />
+        <CircularNavigation buttons={createButtons(editor, router, onSave)} />
       )}
     </div>
   );

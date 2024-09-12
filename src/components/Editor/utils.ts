@@ -1,20 +1,23 @@
 "use client";
 import EditorJS from "@editorjs/editorjs";
-import { Dispatch } from "@reduxjs/toolkit";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
 const saveEditorHandler = (
   editor: EditorJS | undefined,
-  onSave: (data: any) => void
+  router: AppRouterInstance,
+  onSave: (data: any) => any
 ) => {
   editor &&
     editor
       .save()
       .then((outputData: any) => {
-        onSave({
+        const saveData = onSave({
           articleData: outputData,
           tags: [],
           createdAt: new Date(),
+        });
+        saveData.then(({ data }: any) => {
+          router.push(`createArticle/fillMetadata/${data.id}`);
         });
       })
       .catch((error: any) => {
@@ -29,7 +32,6 @@ const backButtonHandler = (router: AppRouterInstance) => {
 export const createButtons = (
   editor: EditorJS | undefined,
   router: AppRouterInstance,
-  dispatch: Dispatch,
   onSave: (body: any) => void
 ) => {
   return [
@@ -39,7 +41,7 @@ export const createButtons = (
     },
     {
       label: "Save",
-      function: () => saveEditorHandler(editor, onSave),
+      function: () => saveEditorHandler(editor, router, onSave),
     },
   ];
 };
