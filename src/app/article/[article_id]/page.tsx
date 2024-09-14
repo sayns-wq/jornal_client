@@ -4,15 +4,16 @@ import Reader from "@/modules/Reader/Reader";
 import { store } from "@/store/store";
 import { Provider } from "react-redux";
 import styles from "./article.module.css";
+import NavBarPageLayout from "@/layouts/NavBarPageLayout/NavBarPageLayout";
 
 export default function Article() {
   return (
     <Provider store={store}>
-      <main className={styles.mainPage}>
+      <NavBarPageLayout>
         <div className={styles.readerWrapper}>
           <Reader />
         </div>
-      </main>
+      </NavBarPageLayout>
     </Provider>
   );
 }

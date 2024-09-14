@@ -7,15 +7,15 @@ import Link from "next/link";
 const navItems = [
   {
     label: "Home",
-    tag: "tag_1",
+    tag: "/",
   },
   {
     label: "About",
-    tag: "tag_2",
+    tag: "/tag_2",
   },
   {
     label: "Contact",
-    tag: "tag_3",
+    tag: "/tag_3",
   },
 ];
 export default function NavBar() {
@@ -29,7 +29,7 @@ export default function NavBar() {
               key={navItem.label}
               onClick={() => dispatch(setBlock(navItem.label))}
             >
-              {navItem.label}
+              <Link href={navItem.tag}>{navItem.label}</Link>
             </li>
           );
         })}

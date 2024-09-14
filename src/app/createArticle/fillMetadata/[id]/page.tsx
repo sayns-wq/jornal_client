@@ -7,7 +7,7 @@ import { Provider } from "react-redux";
 import { store } from "@/store/store";
 
 export default function CreateArticle() {
-  const { register, handleSubmit, watch } = useForm<InputsType>();
+  const { register, handleSubmit, control } = useForm<InputsType>();
   const onSubmit: SubmitHandler<InputsType> = (data) => console.log(data);
   return (
     <Provider store={store}>
@@ -16,6 +16,7 @@ export default function CreateArticle() {
           register={register}
           onSubmit={onSubmit}
           handleSubmit={handleSubmit}
+          control={control}
         />
       </main>
     </Provider>

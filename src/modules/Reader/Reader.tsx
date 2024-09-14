@@ -4,7 +4,7 @@ import { config } from "./config";
 import Editor from "@/components/Editor/Editor";
 import Loader from "@/components/Loader/Loader";
 import { useGetOneArticleQuery } from "@/store/api/articleApi";
-import { useRouter, usePathname, useParams } from "next/navigation";
+import { useParams } from "next/navigation";
 let baseConfig = {
   ...config,
   data: {
