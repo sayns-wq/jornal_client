@@ -1,0 +1,20 @@
+.button {
+  width: 100%;
+  border: 2px solid blueviolet;
+  border-radius: 6px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
+  padding: 15px 25px;
+  margin: 5px 0;
+  transition: all 0.7s;
+  background-color: blueviolet;
+  color: #ffffff;
+  cursor: pointer;
+}
+.button:hover {
+  background-color: rgb(84, 82, 188);
+}
+
+.button:active {
+  background-color: blueviolet;
+}

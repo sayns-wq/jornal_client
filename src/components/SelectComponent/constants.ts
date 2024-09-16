@@ -21,5 +21,6 @@ export const sylesConfig: StylesConfig<OptionsType> = {
     ...styles,
     fontSize: "14px",
     padding: 0,
+    fontWeight: 400,
   }),
 };
