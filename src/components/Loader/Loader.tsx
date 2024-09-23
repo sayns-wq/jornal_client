@@ -1,10 +1,9 @@
-import loader from "@/images/bouncing-circles.svg";
-import Image from "next/image";
 import styles from "./loader.module.css";
+import Icon from "../Icon/Icon";
 export default function Loader() {
   return (
     <div className={styles.loaderWrapper}>
-      <Image src={loader} alt="loader" />
+      <Icon name="loader" />
     </div>
   );
 }
