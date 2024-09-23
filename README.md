@@ -1,4 +1,5 @@
 ## To Do
 
 infinite scrolling
-input styles
+input styles - done
+Auth
