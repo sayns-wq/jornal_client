@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { IAllArticles, IArticleData } from "./types";
 
 export const articleApi = createApi({
   reducerPath: "articleApi",
@@ -27,13 +28,28 @@ export const articleApi = createApi({
       }),
       invalidatesTags: ["ArticleDelete"],
     }),
-    getAllArticles: build.query<any[], void>({
+    getAllArticles: build.query<IAllArticles, void>({
       query: () => ({
         url: `/`,
         method: "GET",
       }),
       providesTags: ["ArticleUpdate", "ArticleDelete"],
     }),
+
+    getAllArticlesWithLimit: build.query<IArticleData[], any>({
+      query: (limit) => ({
+        url: `/`,
+        method: "GET",
+        params: {
+          limit,
+        },
+      }),
+      providesTags: ["ArticleUpdate", "ArticleDelete"],
+      transformResponse: (response: IAllArticles) => {
+        return response.data;
+      },
+    }),
+
     updateArticle: build.mutation({
       query: (body) => ({
         url: `/${body.id}`,
@@ -51,4 +67,5 @@ export const {
   useGetAllArticlesQuery,
   useUpdateArticleMutation,
   useDeleteOneArticleMutation,
+  useGetAllArticlesWithLimitQuery,
 } = articleApi;
